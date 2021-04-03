@@ -27,10 +27,12 @@ function GetStarted() {
   const [camera, setCamera] = useState(null)
   const [network, setNetwork] = useState(null)
   const [mic, setMic] = useState(null)
+  const [bgPosition, setBgPosition] = useState("-200px")
 
   useEffect(() => {
     setTimeout(() => {
-      requestMedia()
+      // requestMedia()
+      setBgPosition("0px")
     }, 2000)
   }, [])
 
@@ -66,8 +68,13 @@ function GetStarted() {
   }
 
   return (
-    <Grid container style={{ minHeight: "100vh", backgroundImage: 'url("' + require("../../static/bg-art.png").default + '")  no-repeat contain' }}>
-      <Grid item sm={7} style={{ padding: "5%", position: "relative" }}>
+    <Grid
+      container
+      className={sty.root}
+      style={{
+        backgroundPositionX: bgPosition,
+      }}>
+      <Grid item sm={7} className={sty.sec1}>
         <div style={{ zIndex: 100, position: "inherit" }}>
           <Typography variant="h4">Welcome</Typography>
           <img src={logo} height={57} style={{ padding: "12px 0 24px" }} />
@@ -81,7 +88,7 @@ function GetStarted() {
         </div>
       </Grid>
 
-      <Grid item sm={5} container justify="center" alignContent="center">
+      <Grid item sm={5} className={sty.sec2} container justify="center" alignContent="center">
         <Card style={{ maxWidth: 430, padding: 12, borderRadius: 14 }}>
           <CardHeader title={<Typography variant="h6">Make Sure</Typography>} subheader={<Typography>Check all required devices are connected and working properly.</Typography>} />
           <CardContent style={{ paddingTop: 40, paddingBottom: 40 }}>
@@ -128,7 +135,41 @@ function GetStarted() {
 
 export default GetStarted
 
-const styles = makeStyles(() => ({
+const styles = makeStyles(theme => ({
+  root: {
+    minHeight: "100vh",
+    background: 'url("' + require("../../static/bg-art.png").default + '") no-repeat',
+    backgroundSize: "contain",
+    transition: "background 5s ease-out",
+
+    "&::before": {
+      zIndex: -1,
+      content: '""',
+      display: "block",
+      height: 180,
+      width: 200,
+      position: "absolute",
+      bottom: "16%",
+      left: 0,
+      backgroundColor: theme.palette.primary.main,
+    },
+    "&::after": {
+      zIndex: -1,
+      content: '""',
+      display: "block",
+      height: 180,
+      width: 200,
+      position: "absolute",
+      bottom: "16%",
+      right: 0,
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+  sec1: {
+    padding: "5%",
+    position: "relative",
+  },
+  sec2: {},
   background: {
     position: "absolute",
     top: 0,

@@ -1,13 +1,4 @@
 const config = {
-  // breakpoints: {
-  //   values: {
-  //     xs: 0,
-  //     sm: 700,
-  //     md: 800,
-  //     lg: 1280,
-  //     xl: 1920,
-  //   },
-  // },
   typography: {
     fontFamily: [
       "Poppins",
@@ -22,12 +13,6 @@ const config = {
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(","),
-    // caption: {
-    //   fontSize: "0.7rem",
-    // },
-    // button: {
-    //   textTransform: "none",
-    // },
   },
   props: {
     MuiLink: {
@@ -47,8 +32,9 @@ const config = {
           borderRadius: 10,
         },
         "*::-webkit-scrollbar-thumb": {
-          borderRadius: 10,
-          background: "rgba(0, 0, 0, 0.3)",
+          // borderRadius: 10,
+          // background: "rgba(0, 0, 0, 0.3)",
+          background: "#006838",
         },
       },
     },

@@ -4,6 +4,7 @@ import App from "../test/App"
 import GetStarted from "../views/getStarted"
 import HomeScreen from "../views/home"
 import LoadingScreen from "../views/loading"
+import FinishedScreen from "../views/finished"
 // import withSuspense from "../hoc/withSuspense"
 
 const RouterContainer = () => {
@@ -12,6 +13,7 @@ const RouterContainer = () => {
       <Router>
         <ScrollToTop />
         <Switch>
+          <Route exact path="/finished" component={FinishedScreen} />
           <Route exact path="/start" component={HomeScreen} />
           <Route exact path="/load" component={LoadingScreen} />
           <Route exact path="/" component={GetStarted} />
