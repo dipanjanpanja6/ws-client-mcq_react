@@ -1,12 +1,17 @@
 import { CssBaseline, Grid, IconButton, makeStyles, Paper, Typography } from "@material-ui/core"
-import { FiberManualRecordRounded, GraphicEqRounded, Info, MoreHoriz, MoreVert } from "@material-ui/icons"
-import React, { useRef } from "react"
+import { FiberManualRecordRounded, GraphicEqRounded, Info, MoreVert } from "@material-ui/icons"
+import React, { useEffect, useRef } from "react"
 import logo from "../../static/logo.png"
 import VerticalLinearStepper from "./component"
 
 function HomeScreen() {
   const output_video = useRef()
   const sty = styles()
+
+  useEffect(() => {
+    return () => { }
+  }, [])
+
   return (
     <Grid container>
       <CssBaseline />
@@ -57,7 +62,6 @@ export default HomeScreen
 const styles = makeStyles(theme => ({
   sec2: {
     background: 'url("' + require("../../static/bg-art.png").default + '") no-repeat',
-    // padding: "0 20px",
     position: "relative",
     height: "inherit",
   },
@@ -66,13 +70,13 @@ const styles = makeStyles(theme => ({
     maxWidth: "90%",
     width: 1024,
     height: 480,
+    margin: "auto",
     borderRadius: 14,
     position: "relative",
     color: "#fff",
   },
   action: {
     position: "absolute",
-    // top: 0,
     left: 0,
     right: 0,
     padding: 12,

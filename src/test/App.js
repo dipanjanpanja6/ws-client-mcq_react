@@ -2,7 +2,7 @@
 import { io } from "socket.io-client"
 import { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
-import { AppBar, Button, ButtonGroup, Grid, Icon, IconButton, TextField, Toolbar, Typography } from "@material-ui/core"
+import { AppBar, Button, ButtonGroup, Grid, TextField, Toolbar, Typography } from "@material-ui/core"
 import "./App.css"
 
 const socketio_address = "http://localhost:1437",

@@ -1,10 +1,20 @@
 import { createStore, combineReducers, applyMiddleware } from "redux"
-
-import { composeWithDevTools } from "redux-devtools-extension"
 import thunk from "redux-thunk"
-import user from "./reducer/userReduser"
-const reducers = combineReducers({ user })
+import questions from "./reducer/questionsReducer"
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
+const initialState = {}
+const reducers = combineReducers({ questions });
+
+const bindMiddleware = middleware => {
+  if (process.env.NODE_ENV !== "production") {
+    const { composeWithDevTools } = require("redux-devtools-extension")
+    return composeWithDevTools(applyMiddleware(middleware))
+  }
+  return applyMiddleware(middleware)
+}
+
+
+const store = () => createStore(reducers, initialState, bindMiddleware(thunk))
+
 
 export default store

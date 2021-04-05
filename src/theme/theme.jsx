@@ -25,6 +25,12 @@ function Theme({ children }) {
       <Cancel />
     </IconButton>
   )
+  React.useEffect(() => {
+    document.addEventListener("contextmenu", e => {
+      e.preventDefault()
+    })
+    return () => {}
+  }, [])
   return (
     <ThemeProvider theme={theme}>
       <SnackbarProvider maxSnack={2} ref={notistackRef} action={action}>
